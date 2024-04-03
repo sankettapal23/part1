@@ -1,0 +1,86 @@
+m=int(input("Enter total number of rows in both Matrices"))
+n=int(input("Enter total number of columns in both Matrices"))
+
+M1=[]
+M2=[]
+
+for i in range(m):#i=0,1,2,3   for sublist
+    sublist1=[]
+    for j in range(n):#j=0,1,2   for elements of indi sublist
+        e=int(input("Enter value of element"))
+        sublist1.append(e)
+    M1.append(sublist1)
+    
+print("*****Matrix 1 is******")
+for i in M1:
+    print(i)
+#For matrix 2 
+print("***For matrix 2 enter following***")
+for i in range(m):#i=0,1,2,3   for sublist
+    sublist1=[]
+    for j in range(n):#j=0,1,2   for elements of indi sublist
+        e=int(input("Enter value of element"))
+        sublist1.append(e)
+    M2.append(sublist1)
+    
+print("*****Matrix  is******")
+for i in M2:
+    print(i)  
+    
+    
+#a)Addition
+A1=[]
+for i in range(m):#i=0,1,2,3   for sublist
+    sublist1=[]
+    for j in range(n):#j=0,1,2   for elements of indi sublist
+        e=M1[i][j]+M2[i][j]
+        sublist1.append(e)
+    A1.append(sublist1)
+    
+print("*****Matrix Addition is******")
+for i in A1:
+    print(i)
+
+#b)subtraction
+A2=[]
+for i in range(m):#i=0,1,2,3   for sublist
+    sublist1=[]
+    for j in range(n):#j=0,1,2   for elements of indi sublist
+        e=M1[i][j]-M2[i][j]
+        sublist1.append(e)
+    A2.append(sublist1)
+    
+print("*****Matrix subtraction is******")
+for i in A2:
+    print(i)  
+
+
+#c)multiplication
+A3=[]
+for i in range(m):#i=0,1
+   sublist=[]
+   for j in range(n):#j=0,1
+       sum=0
+       for k in range(n):#k=0,1,2
+           sum=sum+(M1[i][k]*M2[k][j])
+       sublist.append(sum)
+   A3.append(sublist)
+
+    
+print("*****Matrix multiplication is******")
+for i in A3:
+    print(i)      
+        
+#d)Transpose of matrix        
+A4=[]
+for j in range(n):#j=0   for sublist
+    sublist1=[]
+    for i in range(m):#i=0,1,2   for elements of indi sublist
+        e=A3[i][j]
+        sublist1.append(e)
+    A4.append(sublist1)
+    
+print("*****Matrix transpose is******")
+for i in A4:
+    print(i)
+    

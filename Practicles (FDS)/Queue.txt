@@ -1,0 +1,108 @@
+#include<iostream>
+using namespace std;
+
+class Queue {
+public:
+    int q[5];
+    int no;
+    int front, rear, front1;
+
+    Queue() {
+        front = rear = -1;
+    }
+
+    void insert();
+    void delete1();
+    void display();
+    int isfull();
+    int isempty();
+};
+
+void Queue::insert() {
+    if (isfull()) {
+        cout << "Queue is full\n";
+    } else {
+        cout << "Enter number: ";
+        cin >> no;
+        rear++;
+        q[rear] = no;
+        if(front==-1)
+        front++;
+    }
+}
+
+void Queue::delete1() {
+    if (isempty()) {
+        cout << "Queue is empty\n";
+    } else {
+        
+        no = q[front];
+        cout << "Element is " << no << endl;
+
+        if (front == rear) {
+            front = rear = -1;
+        } else {
+            front++;
+        }
+    }
+}
+
+void Queue::display() {
+    int i;
+    if (isempty()) {
+        cout << "Queue is empty\n";
+    } else {
+        front1=front;
+        for (i = front1; i <= rear; i++) {
+            cout << q[i] << "\t ";
+        }
+        cout << endl;
+    }
+}
+
+int Queue::isfull() {
+    if (rear >= 4) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int Queue::isempty() {
+    if (front == -1 || front > rear) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    int ch;
+    Queue q;
+
+    do {
+        cout << "Enter choice\n";
+        cout << "1.Insert\t2.Delete\t3.Display\t4.Exit\n";
+        cin >> ch;
+
+        switch (ch) {
+            case 1:
+                q.insert();
+                break;
+            case 2:
+                q.delete1();
+                break;
+            case 3:
+                q.display();
+                break;
+            case 4:
+                cout << "Exiting program.\n";
+                break;
+            default:
+                cout << "Wrong choice\n";
+                break;
+        }
+    } while (ch != 4);
+
+    return 0;
+}
